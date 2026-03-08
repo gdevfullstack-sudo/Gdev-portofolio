@@ -1,0 +1,39 @@
+/* Custom Styles for Portfolio */
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #0d7ff2, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-main {
+    background: linear-gradient(45deg, #0d7ff2, #8a2be2);
+}
+
+.glow-hover:hover {
+    box-shadow: 0 0 20px rgba(13, 127, 242, 0.4);
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(13, 127, 242, 0.15) 0%, rgba(138, 43, 226, 0.05) 100%);
+    filter: blur(80px);
+    z-index: -1;
+    border-radius: 50%;
+}
