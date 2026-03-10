@@ -3,10 +3,10 @@
 <html class="dark" lang="fr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ressource/Logo.png" property="og:image"/>
-<meta content="Ressource/Logo.png" name="twitter:image"/>
+<meta content="Ressource/Logo.webp" property="og:image"/>
+<meta content="Ressource/Logo.webp" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="Ressource/Logo.png" rel="icon" type="image/png"/>
+<link href="Ressource/Logo.webp" rel="icon" type="image/webp"/>
 <title>Gdev | Expériences Numériques</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -39,21 +39,21 @@
         }
     </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30 overflow-x-hidden">
+<body class="relative bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30 overflow-x-hidden">
 <!-- Decorative Blobs -->
 <div class="blob top-[-10%] left-[-10%]"></div>
 <div class="blob bottom-[10%] right-[-5%]"></div>
 <!-- Floating Navbar -->
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-<div class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+<nav class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1rem)] sm:w-[90%] max-w-4xl">
+<div class="glass rounded-[1.75rem] px-4 sm:px-6 py-3 shadow-2xl">
+<div class="flex items-center justify-between gap-4">
 <div class="flex items-center gap-2">
-<img alt="Logo Gdev" class="size-8 rounded-lg object-cover" src="Ressource/Logo.png"/>
-<div class="hidden sm:flex flex-col leading-tight">
-<span class="font-bold tracking-tight text-lg">Gdev</span>
+<img alt="Logo Gdev" class="size-8 rounded-lg object-cover" src="Ressource/Logo.webp"/>
+<div class="flex flex-col leading-tight">
+<span class="font-bold tracking-tight text-sm sm:text-lg">Gdev</span>
 <span class="text-[10px] text-slate-500 dark:text-slate-400">J'ai l'idée, G le code</span>
 </div>
 </div>
-<div class="flex items-center gap-8">
 <div class="hidden md:flex items-center gap-6">
 <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
 <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#about">À propos</a>
@@ -61,11 +61,23 @@
 <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
 <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
 </div>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-button md:hidden inline-flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100 transition-colors hover:border-primary/50 hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+</div>
+</div>
+<div class="mobile-menu hidden md:hidden pt-3" id="mobile-menu">
+<div class="glass-strong flex flex-col gap-1 rounded-3xl p-3">
+<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
+<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#about">À propos</a>
+<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
+<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
+<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
 </div>
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20" id="home">
+<section class="relative min-h-[100svh] flex flex-col items-center justify-center px-4 sm:px-6 pt-28 sm:pt-24 pb-12" id="home">
 <div class="max-w-4xl w-full text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
                 <span class="relative flex h-2 w-2">
@@ -74,10 +86,10 @@
                 </span>
                 DISPONIBLE POUR PROJETS
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-[1.1]">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-[1.1]">
                 Créer des <span class="text-gradient">Expériences</span> <br/> Numériques
             </h1>
-            <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                 J’aide les entreprises à lancer des sites et applications rapides, clairs et rentables. Développement fullstack moderne, design centré utilisateur.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -116,7 +128,7 @@
             </div>
         </div>
     </section>
-<section class="py-24 px-6 max-w-7xl mx-auto" id="about">
+<section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="about">
 <div class="glass p-8 md:p-12 rounded-3xl border-white/5">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 <div>
@@ -165,7 +177,7 @@
 </div>
 </section>
 <!-- Projects Section (Bento Grid) -->
-<section class="py-24 px-6 max-w-7xl mx-auto" id="projects">
+<section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="projects">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 <div>
 <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Portfolio</h2>
@@ -175,8 +187,8 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <!-- Project 1: Large -->
-        <div class="md:col-span-8 group relative overflow-hidden rounded-2xl glass p-8 min-h-[400px] flex flex-col justify-end">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" data-alt="Modern analytics dashboard interface with dark theme" style="background-image: url('Ressource/zikzone 2.png');"></div>
+        <div class="md:col-span-8 group relative overflow-hidden rounded-2xl glass p-6 sm:p-8 min-h-[320px] sm:min-h-[400px] flex flex-col justify-end">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" data-alt="Modern analytics dashboard interface with dark theme" style="background-image: url('Ressource/zikzone 2.webp');"></div>
             <div class="relative z-10">
 <div class="flex flex-wrap gap-2 mb-4">
 <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">FRONTEND: NEXT.JS / TYPESCRIPT</span>
@@ -192,8 +204,8 @@
             </div>
 </div>
 <!-- Project 2: Small -->
-        <div class="md:col-span-4 group relative overflow-hidden rounded-2xl glass p-8 min-h-[400px] flex flex-col justify-end">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-30" data-alt="Abstract code and data visualization" style="background-image: url('Ressource/WhatsApp\ Image\ 2026-03-08\ at\ 17.02.55.jpeg');"></div>
+        <div class="md:col-span-4 group relative overflow-hidden rounded-2xl glass p-6 sm:p-8 min-h-[320px] sm:min-h-[400px] flex flex-col justify-end">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-30" data-alt="Abstract code and data visualization" style="background-image: url('Ressource/WhatsApp\ Image\ 2026-03-08\ at\ 17.02.55.webp');"></div>
             <div class="relative z-10">
 <div class="flex flex-wrap gap-2 mb-4">
 <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">HTML CSS</span>
@@ -210,7 +222,7 @@
 </div>
 </section>
 <!-- Skills Section -->
-<section class="py-24 px-6 bg-slate-100/50 dark:bg-slate-900/10" id="skills">
+<section class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-100/50 dark:bg-slate-900/10" id="skills">
 <div class="max-w-7xl mx-auto">
 <div class="text-center mb-16">
 <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Technique</h2>
@@ -282,7 +294,7 @@
 </div>
 </section>
 <!-- Contact Section -->
-<section class="py-24 px-6 relative overflow-hidden" id="contact">
+<section class="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden" id="contact">
     <div class="max-w-4xl mx-auto">
         <div class="glass p-8 md:p-12 rounded-3xl relative z-10 border-white/5">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -324,10 +336,10 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="py-12 px-6 border-t border-white/5">
+<footer class="py-12 px-4 sm:px-6 border-t border-white/5">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 <div class="flex items-center gap-2">
-<img alt="Logo Gdev" class="size-6 rounded object-cover" src="Ressource/Logo.png"/>
+<img alt="Logo Gdev" class="size-6 rounded object-cover" src="Ressource/Logo.webp"/>
 <div class="flex flex-col leading-tight">
 <span class="font-bold tracking-tight text-sm">Gdev</span>
 <span class="text-[10px] text-slate-500 dark:text-slate-400">J'ai l'idée, G le code</span>
