@@ -1,34 +1,21 @@
-# TODO.md - Améliorations Portfolio Gdev
+# TODO.md - Fix Bug Responsivité Mobile (Navbar Overflow)
 
-## Plan Approuvé (Step-by-Step)
-Statut : ⏳ En cours
+## Plan Approuvé ✅ - Fix Navbar Mobile
+**Statut**: 🚀 En cours
 
-### Étape 1: [✅] Performance/A11y - Images lazy/alt + focus styles (partiel)
-   - Edit index.html (logos + Zikzone)
-   - Edit style.css (focus)
-   - Skip 2e image (bg div)
+### Étape 1: [✅] Corriger Navbar Width/Padding (index.html)
+- Width: `w-full max-w-[95vw] sm:w-[90%] sm:max-w-4xl`
+- Padding: `px-2 sm:px-4` + `overflow-hidden`
 
-### Étape 2: [✅] SEO - Meta + JSON-LD + preload
-   - Edit index.html (description + preload + schema Person)
+### Étape 2: [✅] Media Query CSS (style.css)
+- `@media (max-width: 360px)`: Safe-area + padding 0.5rem
 
-### Étape 3: [✅] UX - Form validation JS
-   - Edit script.js (client validation + AJAX + feedback)
+### Étape 3: [⏳] Test & Validation
+- ✅ Local: `start index.html`
+- DevTools: 320px/360px OK
+- Phone test: À vérifier
 
-### Étape 4: [✅] Dark toggle
-   - Edit index.html + script.js (bouton nav + localStorage + system pref)
+**Objectif**: Éliminer scroll horizontal navbar <360px.
 
-### Étape 5: [✅] PWA basique
-   - Create manifest.json + sw.js + link index.html
+*Progress sera updaté après chaque étape.*
 
-### Étape 6: [✅] Netlify security headers
-   - Edit netlify.toml (CSP, cache, security headers)
-
-## Corrections Light Mode (Post-feedback)
-
-### Correction 1: [✅] Fix glass/transparence light + form contact styles
-   - style.css : Glass light opaque + dark variants
-   - index.html : Form labels/inputs glass-strong + text contrast
-### Correction 2: [✅] Tests Lighthouse
-   - Perf/A11y/SEO/PWA scores ~95+
-
-**Projet 100% ✅** Tous inconvénients fixés !

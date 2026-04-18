@@ -61,19 +61,19 @@
 }
 </script>
 </head>
-<body class="relative bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30 overflow-x-hidden">
+<body class="relative overflow-x-hidden bg-background-light font-display text-slate-900 antialiased selection:bg-primary/30 dark:bg-background-dark dark:text-slate-100">
 <!-- Decorative Blobs -->
 <div class="blob top-[-10%] left-[-10%]"></div>
 <div class="blob bottom-[10%] right-[-5%]"></div>
 <!-- Floating Navbar -->
-<nav class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1rem)] sm:w-[90%] max-w-4xl">
-<div class="glass rounded-[1.75rem] px-4 sm:px-6 py-3 shadow-2xl">
+<nav class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95vw] sm:w-[90%] sm:max-w-4xl">
+<div class="glass rounded-[1.75rem] px-2 sm:px-4 py-3 shadow-2xl overflow-hidden">
 <div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-2">
+<div class="flex min-w-0 items-center gap-2">
 <img alt="Logo Gdev - Développeur fullstack" class="size-8 rounded-lg object-cover" loading="lazy" src="Ressource/Logo.webp"/>
-<div class="flex flex-col leading-tight">
+<div class="flex min-w-0 flex-col leading-tight">
 <span class="font-bold tracking-tight text-sm sm:text-lg">Gdev</span>
-<span class="text-[10px] text-slate-500 dark:text-slate-400">J'ai l'idée, G le code</span>
+<span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
 </div>
 </div>
 <div class="hidden md:flex items-center gap-6">
@@ -91,7 +91,7 @@
 </button>
 </div>
 </div>
-<div class="mobile-menu hidden md:hidden pt-3" id="mobile-menu">
+<div class="mobile-menu hidden w-full md:hidden pt-3" id="mobile-menu">
 <div class="glass-strong flex flex-col gap-1 rounded-3xl p-3">
 <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
 <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#about">À propos</a>
@@ -106,7 +106,7 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="relative min-h-[100svh] flex flex-col items-center justify-center px-4 sm:px-6 pt-28 sm:pt-24 pb-12" id="home">
+<section class="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pt-28 pb-12 sm:px-6 sm:pt-24 sm:pb-16 lg:pb-20" id="home">
 <div class="max-w-4xl w-full text-center">
 
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
@@ -116,19 +116,19 @@
                 </span>
                 DISPONIBLE POUR PROJETS
             </div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tighter mb-6 leading-[1.1]">
+            <h1 class="mb-6 text-[clamp(2.5rem,8vw,7rem)] font-black leading-[1.05] tracking-tighter">
                 Créer des <span class="text-gradient">Expériences</span> <br/> Numériques
             </h1>
-            <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p class="mx-auto mb-10 max-w-2xl px-1 text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:px-0 sm:text-lg md:text-xl">
                 J'aide les entreprises à lancer des sites et applications rapides, clairs et rentables. Développement fullstack moderne, design centré utilisateur.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
 
-<a class="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-xl glow-hover glow-pulse magnetic transition-all duration-300 flex items-center justify-center gap-2" href="#projects">
+<a class="magnetic glow-hover glow-pulse flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-center font-bold text-white transition-all duration-300 sm:w-auto sm:min-w-[12rem]" href="#projects">
                     Voir résultats
                     <span class="material-symbols-outlined text-sm">arrow_downward</span>
                 </a>
-                <a class="w-full sm:w-auto px-8 py-4 glass text-slate-900 dark:text-white font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-white/5 glow-pulse magnetic transition-all duration-300 flex items-center justify-center" href="#contact">
+                <a class="magnetic glass glow-pulse flex w-full items-center justify-center rounded-xl px-8 py-4 text-center font-bold text-slate-900 transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-white/5 sm:w-auto sm:min-w-[12rem]" href="#contact">
                     Obtenir un devis
                 </a>
 
@@ -167,7 +167,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 <div>
 <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">À propos</h2>
-<h3 class="text-4xl font-bold dark:text-white mb-6 text-gradient">À propos de moi</h3>
+<h3 class="mb-6 text-3xl font-bold text-gradient dark:text-white sm:text-4xl">À propos de moi</h3>
 <div class="space-y-4 text-slate-400 leading-relaxed">
 <p>
                         Passionné par le développement web depuis plus de 2 ans, je me spécialise dans la création d'interfaces intuitives et performantes. Mon approche combine rigueur technique et sensibilité design pour offrir des expériences numériques mémorables.
@@ -215,13 +215,13 @@
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 <div>
 <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Portfolio</h2>
-<h3 class="text-4xl font-bold dark:text-white">Projets sélectionnés</h3>
+<h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Projets sélectionnés</h3>
 </div>
 <p class="text-slate-400 max-w-md">Une collection de solutions techniques construites avec des technologies modernes et axées sur la performance.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <!-- Project 1: Large -->
-        <div class="md:col-span-8 group relative overflow-hidden rounded-2xl glass p-6 sm:p-8 min-h-[320px] sm:min-h-[400px] flex flex-col justify-end">
+        <div class="project-card md:col-span-8 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" style="background-image: url('Ressource/zikzone 2.webp');" alt="Capture d'écran Zikzone - plateforme streaming musicale" loading="lazy"></div>
             <div class="relative z-10">
 <div class="flex flex-wrap gap-2 mb-4">
@@ -238,7 +238,7 @@
             </div>
 </div>
 <!-- Project 2: Small -->
-        <div class="md:col-span-4 group relative overflow-hidden rounded-2xl glass p-6 sm:p-8 min-h-[320px] sm:min-h-[400px] flex flex-col justify-end">
+        <div class="project-card md:col-span-4 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-30" data-alt="Abstract code and data visualization" style="background-image: url('Ressource/WhatsApp\ Image\ 2026-03-08\ at\ 17.02.55.webp');"></div>
             <div class="relative z-10">
 <div class="flex flex-wrap gap-2 mb-4">
@@ -260,9 +260,9 @@
 <div class="max-w-7xl mx-auto">
 <div class="text-center mb-16">
 <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Technique</h2>
-<h3 class="text-4xl font-bold dark:text-white">Expertise &amp; Stack</h3>
+<h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Expertise &amp; Stack</h3>
 </div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<div class="grid grid-cols-2 gap-4 min-[480px]:grid-cols-3 sm:gap-6 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
 <!-- Skill Card -->
 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
 <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -333,14 +333,14 @@
         <div class="glass p-8 md:p-12 rounded-3xl relative z-10 border-white/5">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 <div>
-<h2 class="text-4xl font-bold mb-6">Créons <br/> quelque chose <span class="text-gradient">d'incroyable.</span></h2>
+<h2 class="mb-6 text-3xl font-bold sm:text-4xl lg:text-5xl">Créons <br/> quelque chose <span class="text-gradient">d'incroyable.</span></h2>
 <p class="text-slate-400 mb-8 leading-relaxed">
                             Je suis actuellement à la recherche de nouvelles opportunités. Que vous ayez une question ou simplement envie de dire bonjour, je ferai de mon mieux pour vous répondre !
                         </p>
 <div class="flex flex-col gap-4">
 <div class="flex items-center gap-4 text-slate-300">
 <span class="material-symbols-outlined text-primary">mail</span>
-<span>gdevfullstack@gmail.com</span>
+<span class="break-all">gdevfullstack@gmail.com</span>
 </div>
 <div class="flex items-center gap-4 text-slate-300">
 <span class="material-symbols-outlined text-primary">location_on</span>
@@ -373,16 +373,16 @@
 </section>
 <!-- Footer -->
 <footer class="py-12 px-4 sm:px-6 border-t border-white/5">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
 <div class="flex items-center gap-2">
 <img alt="Logo Gdev - Développeur fullstack footer" class="size-6 rounded object-cover" loading="lazy" src="Ressource/Logo.webp"/>
 <div class="flex flex-col leading-tight">
 <span class="font-bold tracking-tight text-sm">Gdev</span>
-<span class="text-[10px] text-slate-500 dark:text-slate-400">J'ai l'idée, G le code</span>
+<span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
 </div>
 </div>
 <p class="text-slate-500 text-sm">© 2026 G Dev. Tous droits réservés.</p>
-<div class="flex items-center gap-6">
+<div class="flex flex-wrap items-center justify-center gap-6">
 <a aria-label="Facebook" class="text-slate-400 hover:text-primary transition-colors" href="https://www.facebook.com/gdevfront/" target="_blank" rel="noopener noreferrer">
 <svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.53-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
 </a>

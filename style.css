@@ -214,3 +214,16 @@ nav.scrolled .glass {
     border-radius: inherit;
 }
 
+/* Fix Mobile Navbar <360px */
+@media (max-width: 360px) {
+  nav {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  nav .glass {
+    border-radius: 1rem;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
