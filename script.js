@@ -274,12 +274,30 @@ if (canvas) {
         mouse.y = null;
     });
 
+    let isAnimating = false;
+    let animationFrameId;
+
     function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        initParticles();
+        
+        if (width < 768) {
+            // Disable on mobile/tablet for performance
+            if (isAnimating) {
+                cancelAnimationFrame(animationFrameId);
+                isAnimating = false;
+                ctx.clearRect(0, 0, width, height);
+            }
+        } else {
+            // Enable on desktop
+            initParticles();
+            if (!isAnimating) {
+                isAnimating = true;
+                animateParticles();
+            }
+        }
     }
 
     class Particle {
@@ -373,7 +391,8 @@ if (canvas) {
     }
 
     function animateParticles() {
-        requestAnimationFrame(animateParticles);
+        if (!isAnimating) return;
+        
         ctx.clearRect(0, 0, width, height);
 
         for (let i = 0; i < particles.length; i++) {
@@ -381,11 +400,11 @@ if (canvas) {
             particles[i].draw();
         }
         connectParticles();
+        animationFrameId = requestAnimationFrame(animateParticles);
     }
 
     window.addEventListener('resize', resize);
     
     // Initial setup
     resize();
-    animateParticles();
 }
