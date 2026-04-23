@@ -62,6 +62,8 @@
 </script>
 </head>
 <body class="relative overflow-x-hidden bg-background-light font-display text-slate-900 antialiased selection:bg-primary/30 dark:bg-background-dark dark:text-slate-100">
+<!-- Particles Canvas -->
+<canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-[-2] w-full h-full"></canvas>
 <!-- Decorative Blobs -->
 <div class="blob top-[-10%] left-[-10%]"></div>
 <div class="blob bottom-[10%] right-[-5%]"></div>
@@ -83,7 +85,7 @@
 <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
  <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
 <button id="dark-toggle" class="ml-2 p-2 rounded-xl hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 ring-primary" aria-label="Toggle thème sombre/clair">
-<span class="material-symbols-outlined text-lg">bedtime</span>
+<span class="material-symbols-outlined text-lg">light_mode</span>
 </button>
 </div>
 <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-button md:hidden inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-200/50 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition-colors hover:border-primary/50 hover:text-primary" type="button">
@@ -98,9 +100,9 @@
 <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
 <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
  <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
-<button id="mobile-dark-toggle" class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300 w-full text-left flex items-center justify-between">
-<span>Thème sombre</span>
-<span class="material-symbols-outlined text-lg">bedtime</span>
+<button id="mobile-dark-toggle" class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300 w-full text-left flex items-center justify-between text-slate-900 dark:text-slate-100">
+<span>Thème clair</span>
+<span class="material-symbols-outlined text-lg">light_mode</span>
 </button>
 </div>
 </div>

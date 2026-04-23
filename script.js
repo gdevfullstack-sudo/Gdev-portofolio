@@ -119,22 +119,23 @@ function initDarkMode() {
     darkToggle.querySelector('.material-symbols-outlined').textContent = isDark ? 'light_mode' : 'bedtime';
   }
   if (mobileDarkToggle) {
-    mobileDarkToggle.firstChild.textContent = isDark ? 'Thème clair' : 'Thème sombre';
-    mobileDarkToggle.lastChild.textContent = isDark ? 'light_mode' : 'bedtime';
+    mobileDarkToggle.firstElementChild.textContent = isDark ? 'Thème clair' : 'Thème sombre';
+    mobileDarkToggle.lastElementChild.textContent = isDark ? 'light_mode' : 'bedtime';
   }
 }
 
 function toggleDarkMode() {
-  const isDark = document.documentElement.classList.contains('dark');
+  const wasDark = document.documentElement.classList.contains('dark');
   document.documentElement.classList.toggle('dark');
-  localStorage.setItem('darkMode', (!isDark).toString());
+  const isDarkNow = !wasDark;
+  localStorage.setItem('darkMode', isDarkNow.toString());
   
   if (darkToggle) {
-    darkToggle.querySelector('.material-symbols-outlined').textContent = isDark ? 'bedtime' : 'light_mode';
+    darkToggle.querySelector('.material-symbols-outlined').textContent = isDarkNow ? 'light_mode' : 'bedtime';
   }
   if (mobileDarkToggle) {
-    mobileDarkToggle.firstChild.textContent = isDark ? 'Thème sombre' : 'Thème clair';
-    mobileDarkToggle.lastChild.textContent = isDark ? 'light_mode' : 'bedtime';
+    mobileDarkToggle.firstElementChild.textContent = isDarkNow ? 'Thème clair' : 'Thème sombre';
+    mobileDarkToggle.lastElementChild.textContent = isDarkNow ? 'light_mode' : 'bedtime';
   }
 }
 
@@ -252,3 +253,139 @@ document.addEventListener('DOMContentLoaded', () => {
     if (errorEl) errorEl.remove();
   }
 });
+
+// --- Particle Animation System ---
+const canvas = document.getElementById('particles-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    
+    // Mouse interactivity
+    const mouse = { x: null, y: null, radius: 150 };
+    
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+    
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        initParticles();
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 1;
+            this.baseX = this.x;
+            this.baseY = this.y;
+            this.density = (Math.random() * 30) + 1;
+            this.vx = (Math.random() - 0.5) * 0.4; // Slower, elegant movement
+            this.vy = (Math.random() - 0.5) * 0.4;
+        }
+
+        draw() {
+            // Determine if we are in dark or light mode based on html class
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(13, 127, 242, 0.4)'; 
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        update() {
+            // Movement
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > width) this.vx = -this.vx;
+            if (this.y < 0 || this.y > height) this.vy = -this.vy;
+
+            // Mouse interaction
+            if (mouse.x != null && mouse.y != null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+                    
+                    this.x -= directionX;
+                    this.y -= directionY;
+                }
+            }
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        // Number of particles depends on screen size (responsive)
+        let numberOfParticles = (width * height) / 12000;
+        // Cap the max particles for performance
+        if (numberOfParticles > 120) numberOfParticles = 120;
+        
+        for (let i = 0; i < numberOfParticles; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function connectParticles() {
+        let opacityValue = 1;
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let dx = particles[a].x - particles[b].x;
+                let dy = particles[a].y - particles[b].y;
+                let distance = dx * dx + dy * dy;
+
+                if (distance < 15000) {
+                    opacityValue = 1 - (distance / 15000);
+                    // Light mode uses primary color, dark mode uses white
+                    const color = isDark 
+                        ? `rgba(255, 255, 255, ${opacityValue * 0.15})` 
+                        : `rgba(13, 127, 242, ${opacityValue * 0.2})`;
+                    
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[a].x, particles[a].y);
+                    ctx.lineTo(particles[b].x, particles[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animateParticles() {
+        requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
+        connectParticles();
+    }
+
+    window.addEventListener('resize', resize);
+    
+    // Initial setup
+    resize();
+    animateParticles();
+}
