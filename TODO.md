@@ -10,10 +10,10 @@
 ### Étape 2: [✅] Media Query CSS (style.css)
 - `@media (max-width: 360px)`: Safe-area + padding 0.5rem
 
-### Étape 3: [⏳] Test & Validation
+### Étape 3: [✅] Test & Validation
 - ✅ Local: `start index.html`
 - DevTools: 320px/360px OK
-- Phone test: À vérifier
+- Phone test: Résolu via `left-0 right-0 mx-auto` et `overflow-x-hidden` sur html.
 
 **Objectif**: Éliminer scroll horizontal navbar <360px.
 
