@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESTIM Chat | Inbox</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="inbox">
+    <main class="app-layout">
+      <aside class="sidebar">
+        <div class="sidebar__top">
+          <div>
+            <p class="eyebrow">Messagerie</p>
+            <h1>Conversations</h1>
+          </div>
+          <div class="sidebar__actions">
+            <span id="global-unread-badge" class="top-badge"></span>
+            <a class="icon-link" href="profile.html" title="Profil">Profil</a>
+          </div>
+        </div>
+
+        <label class="search-box">
+          <input id="contact-search" type="search" placeholder="Rechercher un contact..." />
+        </label>
+
+        <section class="panel-block">
+          <div class="panel-block__title">Conversations recentes</div>
+          <div id="conversation-list" class="conversation-list"></div>
+        </section>
+
+        <section class="panel-block">
+          <div class="panel-block__title">Contacts</div>
+          <div id="contact-list" class="contact-list"></div>
+        </section>
+      </aside>
+
+      <section class="empty-state">
+        <div class="empty-state__card">
+          <h2>Choisissez une discussion</h2>
+          <p>
+            Selectionnez un contact dans la liste pour ouvrir la conversation en temps reel.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

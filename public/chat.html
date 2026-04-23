@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESTIM Chat | Discussion</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="chat">
+    <main class="chat-layout">
+      <aside class="sidebar sidebar--compact">
+        <a class="back-link" href="inbox.html">Retour aux conversations</a>
+        <div id="chat-contact-card" class="chat-contact-card"></div>
+      </aside>
+
+      <section class="chat-panel">
+        <header class="chat-header">
+          <div id="chat-header-user" class="chat-header__user"></div>
+          <div id="typing-indicator" class="typing-indicator"></div>
+        </header>
+
+        <div id="message-list" class="message-list"></div>
+
+        <form id="message-form" class="message-form">
+          <label class="file-button">
+            <input id="message-image" type="file" accept="image/*" />
+            <span>Image</span>
+          </label>
+          <textarea
+            id="message-input"
+            rows="1"
+            placeholder="Ecrivez votre message..."
+            maxlength="2000"
+          ></textarea>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

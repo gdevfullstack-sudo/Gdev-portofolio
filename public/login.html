@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESTIM Chat | Connexion</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="login">
+    <main class="auth-shell">
+      <section class="brand-panel">
+        <div class="brand-badge">ESTIM Chat</div>
+        <h1>Discutez en temps reel, en toute simplicite.</h1>
+        <p>
+          Une messagerie moderne, securisee et rapide, pensee pour mobile et desktop.
+        </p>
+        <div class="brand-preview">
+          <div class="mini-card online">Messages instantanes</div>
+          <div class="mini-card">Utilisateurs en ligne</div>
+          <div class="mini-card accent">Interface fluide</div>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div class="auth-card__header">
+          <h2>Connexion</h2>
+          <p>Accedez a votre espace de discussion.</p>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="vous@estimchat.com" required />
+          </label>
+
+          <label>
+            <span>Mot de passe</span>
+            <input type="password" name="password" placeholder="Votre mot de passe" required />
+          </label>
+
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+
+        <div class="separator"><span>ou continuer avec</span></div>
+
+        <div class="oauth-grid">
+          <a class="btn btn-secondary" href="/api/auth/google">Google</a>
+          <a class="btn btn-secondary" href="/api/auth/apple">Apple</a>
+        </div>
+
+        <p class="switch-link">
+          Pas encore de compte ? <a href="register.html">Creer un compte</a>
+        </p>
+
+        <p id="auth-message" class="message-box" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

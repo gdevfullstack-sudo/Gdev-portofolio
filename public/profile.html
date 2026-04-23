@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESTIM Chat | Profil</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="profile">
+    <main class="profile-shell">
+      <section class="profile-card">
+        <a class="back-link" href="inbox.html">Retour</a>
+        <div class="profile-card__header">
+          <h1>Mon profil</h1>
+          <p>Personnalisez vos informations et votre avatar.</p>
+        </div>
+
+        <form id="profile-form" class="auth-form">
+          <div id="profile-preview" class="profile-preview"></div>
+
+          <label>
+            <span>Nom utilisateur</span>
+            <input type="text" name="username" id="profile-username" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" id="profile-email" disabled />
+          </label>
+
+          <label>
+            <span>URL de la photo</span>
+            <input type="url" name="avatar" id="profile-avatar" placeholder="https://..." />
+          </label>
+
+          <label>
+            <span>Importer un avatar</span>
+            <input type="file" id="profile-avatar-file" accept="image/*" />
+          </label>
+
+          <button type="submit" class="btn btn-primary">Mettre a jour</button>
+          <button type="button" id="logout-button" class="btn btn-secondary">Deconnexion</button>
+        </form>
+
+        <p id="profile-message" class="message-box" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

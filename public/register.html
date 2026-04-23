@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESTIM Chat | Inscription</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="register">
+    <main class="auth-shell">
+      <section class="brand-panel">
+        <div class="brand-badge">ESTIM Chat</div>
+        <h1>Creez votre compte en quelques secondes.</h1>
+        <p>
+          Rejoignez vos contacts, retrouvez vos conversations et profitez d'un chat temps reel.
+        </p>
+      </section>
+
+      <section class="auth-card">
+        <div class="auth-card__header">
+          <h2>Inscription</h2>
+          <p>Configurez votre compte de messagerie.</p>
+        </div>
+
+        <form id="register-form" class="auth-form">
+          <label>
+            <span>Nom utilisateur</span>
+            <input type="text" name="username" placeholder="Votre nom" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="vous@estimchat.com" required />
+          </label>
+
+          <label>
+            <span>Mot de passe</span>
+            <input type="password" name="password" placeholder="Minimum 6 caracteres" required />
+          </label>
+
+          <label>
+            <span>Confirmation</span>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirmez votre mot de passe"
+              required
+            />
+          </label>
+
+          <button type="submit" class="btn btn-primary">Creer mon compte</button>
+        </form>
+
+        <div class="separator"><span>ou s'inscrire avec</span></div>
+
+        <div class="oauth-grid">
+          <a class="btn btn-secondary" href="/api/auth/google">Google</a>
+          <a class="btn btn-secondary" href="/api/auth/apple">Apple</a>
+        </div>
+
+        <p class="switch-link">
+          Vous avez deja un compte ? <a href="login.html">Se connecter</a>
+        </p>
+
+        <p id="auth-message" class="message-box" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
