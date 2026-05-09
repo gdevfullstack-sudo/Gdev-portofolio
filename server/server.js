@@ -6,7 +6,6 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
-const session = require("express-session");
 const jwt = require("jsonwebtoken");
 const rateLimit = require("express-rate-limit");
 const { Server } = require("socket.io");
@@ -18,17 +17,36 @@ const messageRoutes = require("./routes/message");
 
 const app = express();
 const server = http.createServer(app);
+const PORT = process.env.PORT || 5000;
+const onlineUsers = new Map();
+const requiredEnvVars = [
+  "MONGO_URI",
+  "JWT_SECRET",
+  ...(process.env.NODE_ENV === "production" ? ["CLIENT_URL"] : [])
+];
+const insecureDefaults = new Set(["change-this-secret"]);
+const clientOrigins = (process.env.CLIENT_URL || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+const allowAnyOrigin = process.env.NODE_ENV !== "production" && clientOrigins.length === 0;
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin || allowAnyOrigin || clientOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Origin not allowed by CORS"));
+  },
+  credentials: true
+};
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "*",
+    origin: allowAnyOrigin ? "*" : clientOrigins,
     methods: ["GET", "POST"]
   }
 });
 
-const PORT = process.env.PORT || 5000;
-const onlineUsers = new Map();
-const requiredEnvVars = ["MONGO_URI", "JWT_SECRET", "SESSION_SECRET"];
-const insecureDefaults = new Set(["change-this-secret", "change-this-session-secret"]);
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   limit: 20,
@@ -43,32 +61,31 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(
   helmet({
-    crossOriginResourcePolicy: false
-  })
-);
-app.use(
-  cors({
-    origin: true,
-    credentials: true
-  })
-);
-app.use(express.json({ limit: "2mb" }));
-app.use(express.urlencoded({ extended: true }));
-app.use("/api/auth", authLimiter);
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production"
+    crossOriginResourcePolicy: false,
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+          "https://cdn.tailwindcss.com",
+          "https://cdn.jsdelivr.net"
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "blob:", "https://ui-avatars.com", "https://www.svgrepo.com"],
+        mediaSrc: ["'self'", "blob:"],
+        connectSrc: ["'self'", ...clientOrigins]
+      }
     }
   })
 );
+app.use(cors(corsOptions));
+app.use(express.json({ limit: "2mb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/auth", authLimiter);
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -120,43 +137,57 @@ io.on("connection", async (socket) => {
   }
 
   socket.on("join:conversation", ({ partnerId }) => {
+    if (!mongoose.Types.ObjectId.isValid(partnerId)) {
+      return;
+    }
+
     const room = [userId, partnerId].sort().join(":");
     socket.join(room);
   });
 
-  socket.on("message:send", async ({ receiverId, message, imageUrl, messageId, createdAt }) => {
-    const trimmedMessage = (message || "").trim();
+  socket.on("message:send", async ({ receiverId, messageId }) => {
+    if (!receiverId || !messageId) {
+      return;
+    }
 
-    if (!receiverId || (!trimmedMessage && !imageUrl)) {
+    if (!mongoose.Types.ObjectId.isValid(receiverId) || !mongoose.Types.ObjectId.isValid(messageId)) {
+      return;
+    }
+
+    const savedMessage = await Message.findOne({
+      _id: messageId,
+      senderId: userId,
+      receiverId
+    });
+
+    if (!savedMessage) {
       return;
     }
 
     const room = [userId, receiverId].sort().join(":");
-    io.to(room).emit("message:new", {
-      _id: messageId || `${Date.now()}`,
-      senderId: userId,
-      receiverId,
-      message: trimmedMessage,
-      imageUrl: imageUrl || "",
-      isSeen: false,
-      createdAt: createdAt || new Date().toISOString()
-    });
+    io.to(room).emit("message:new", savedMessage);
+
+    const previewMessage =
+      savedMessage.message ||
+      (savedMessage.videoUrl ? "Video envoyee" : savedMessage.imageUrl ? "Photo envoyee" : "");
 
     const targetSockets = onlineUsers.get(receiverId);
     io.to(socket.id).emit("conversation:update", {
       from: socket.user.toSafeObject(),
-      message: trimmedMessage || "Image envoyee",
-      imageUrl: imageUrl || "",
-      createdAt: createdAt || new Date().toISOString()
+      message: previewMessage,
+      imageUrl: savedMessage.imageUrl,
+      videoUrl: savedMessage.videoUrl,
+      createdAt: savedMessage.createdAt
     });
 
     if (targetSockets?.size) {
       targetSockets.forEach((targetSocketId) => {
         io.to(targetSocketId).emit("conversation:update", {
           from: socket.user.toSafeObject(),
-          message: trimmedMessage || "Image envoyee",
-          imageUrl: imageUrl || "",
-          createdAt: createdAt || new Date().toISOString()
+          message: previewMessage,
+          imageUrl: savedMessage.imageUrl,
+          videoUrl: savedMessage.videoUrl,
+          createdAt: savedMessage.createdAt
         });
       });
     }
@@ -241,11 +272,16 @@ async function startServer() {
       throw new Error(`Variables manquantes: ${missingEnvVars.join(", ")}`);
     }
 
-    const weakSecrets = ["JWT_SECRET", "SESSION_SECRET"].filter((key) =>
-      insecureDefaults.has(process.env[key])
-    );
+    const weakSecrets = ["JWT_SECRET"].filter((key) => insecureDefaults.has(process.env[key]));
     if (weakSecrets.length > 0) {
-      throw new Error(`Secrets trop faibles: ${weakSecrets.join(", ")}`);
+      if (process.env.NODE_ENV === "production") {
+        throw new Error(`Secrets trop faibles: ${weakSecrets.join(", ")}`);
+      }
+
+      console.warn(
+        `Avertissement: secrets faibles en environnement local (${weakSecrets.join(", ")}). ` +
+          "Mettez a jour votre .env avant une mise en production."
+      );
     }
 
     await mongoose.connect(process.env.MONGO_URI);

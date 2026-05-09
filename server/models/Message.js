@@ -22,6 +22,10 @@ const messageSchema = new mongoose.Schema(
       type: String,
       default: ""
     },
+    videoUrl: {
+      type: String,
+      default: ""
+    },
     isSeen: {
       type: Boolean,
       default: false
@@ -40,8 +44,8 @@ messageSchema.index({ senderId: 1, receiverId: 1, createdAt: -1 });
 messageSchema.index({ receiverId: 1, isSeen: 1, createdAt: -1 });
 
 messageSchema.pre("validate", function validateMessage(next) {
-  if (!this.message && !this.imageUrl) {
-    return next(new Error("A text message or image is required."));
+  if (!this.message && !this.imageUrl && !this.videoUrl) {
+    return next(new Error("A text, image or video message is required."));
   }
 
   next();

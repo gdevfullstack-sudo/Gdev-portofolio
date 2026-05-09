@@ -1,43 +1,339 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ESTIM Chat | Discussion</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body data-page="chat">
-    <main class="chat-layout">
-      <aside class="sidebar sidebar--compact">
-        <a class="back-link" href="inbox.html">Retour aux conversations</a>
-        <div id="chat-contact-card" class="chat-contact-card"></div>
-      </aside>
+<html class="light" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESTIM Chat | Discussion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#705d00",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#e9c400",
+                    "surface-container-low": "#f3f3f8",
+                    "surface-container": "#ededf2",
+                    "surface-bright": "#f9f9fe",
+                    "on-secondary-container": "#646464",
+                    "primary-fixed-dim": "#e9c400",
+                    "on-primary-fixed-variant": "#544600",
+                    "error": "#ba1a1a",
+                    "outline": "#7e775f",
+                    "surface-dim": "#d9dade",
+                    "surface-variant": "#e2e2e7",
+                    "tertiary-fixed-dim": "#00dbe8",
+                    "secondary-container": "#e2e2e2",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "background": "#f9f9fe",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-container-high": "#e8e8ed",
+                    "secondary": "#5e5e5e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#705e00",
+                    "on-surface": "#1a1c1f",
+                    "primary-container": "#ffd700",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#221b00",
+                    "inverse-surface": "#2e3034",
+                    "on-surface-variant": "#4d4732",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "inverse-on-surface": "#f0f0f5",
+                    "primary-fixed": "#ffe16d",
+                    "tertiary-container": "#00f1ff",
+                    "tertiary": "#00696f",
+                    "outline-variant": "#d0c6ab",
+                    "surface-tint": "#705d00",
+                    "on-tertiary-fixed-variant": "#004f54",
+                    "on-background": "#1a1c1f",
+                    "on-secondary-fixed-variant": "#474747",
+                    "surface-container-highest": "#e2e2e7",
+                    "tertiary-fixed": "#79f5ff",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9f9fe",
+                    "on-tertiary-container": "#006a70",
+                    "on-tertiary-fixed": "#002022",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "base": "4px",
+                    "margin-page": "20px",
+                    "gutter-list": "1px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "display": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["15px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "label-bold": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                    "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "headline-md": ["17px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .avatar {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(255,215,0,0.24), rgba(255,255,255,0.08));
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .status-dot {
+            position: absolute;
+            right: 2px;
+            bottom: 2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: #545454;
+        }
+        .status-dot.online { background: #1fd16f; }
+        .message-row {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+        .message-row.outgoing {
+            flex-direction: row-reverse;
+            align-self: flex-end;
+        }
+        .message-row.incoming {
+            align-self: flex-start;
+        }
+        .message-bubble {
+            padding: 14px 18px;
+            border-radius: 20px;
+            max-width: 100%;
+        }
+        .message-row.incoming .message-bubble {
+            background: #fff;
+            border: 1px solid #e2e2e7;
+            border-bottom-left-radius: 4px;
+        }
+        .message-row.outgoing .message-bubble {
+            background: #ffd700;
+            color: #1a1c1f;
+            border-bottom-right-radius: 4px;
+        }
+        .message-time {
+            font-size: 0.7rem;
+            color: #5e5e5e;
+            margin-top: 4px;
+            display: block;
+        }
+        .message-state {
+            font-size: 0.7rem;
+            color: #5e5e5e;
+            margin-top: 2px;
+            text-align: right;
+        }
+        .message-image {
+            max-width: 280px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .message-video {
+            max-width: 280px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: block;
+            background: #000;
+        }
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+        .message-avatar .avatar {
+            width: 32px;
+            height: 32px;
+        }
+        @media (max-width: 980px) {
+            .sidebar-nav { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background" data-page="chat">
 
-      <section class="chat-panel">
-        <header class="chat-header">
-          <div id="chat-header-user" class="chat-header__user"></div>
-          <div id="typing-indicator" class="typing-indicator"></div>
-        </header>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 h-16 z-50 bg-white border-b border-zinc-100 flex items-center justify-between px-6 w-full">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black tracking-tighter text-black">ESTIM</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-zinc-50 rounded-full transition-all">
+<span class="material-symbols-outlined text-zinc-500">notifications</span>
+</button>
+<button class="p-2 hover:bg-zinc-50 rounded-full transition-all">
+<span class="material-symbols-outlined text-zinc-500">help</span>
+</button>
+<img alt="Profil" class="w-8 h-8 rounded-full border border-zinc-200" id="current-user-avatar-top" src="https://ui-avatars.com/api/?name=User&background=FFD700&color=0f0f0f"/>
+</div>
+</header>
 
-        <div id="message-list" class="message-list"></div>
+<div class="flex h-screen pt-16 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="sidebar-nav hidden md:flex flex-col gap-1 w-64 h-full fixed left-0 top-0 pt-20 border-r border-zinc-100 bg-white text-sm font-medium">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden shrink-0 shadow-sm border border-zinc-100">
+<img src="Ressource/Logo.jpeg" alt="Logo ESTIM" class="w-full h-full object-cover">
+</div>
+<div>
+<h2 class="text-xl font-bold text-black leading-tight">ESTIM Chat</h2>
+<p class="text-zinc-500 text-[10px] uppercase tracking-wider">Messagerie</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1 mb-4">
+<a href="inbox.html" class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-50 rounded-lg mx-2 cursor-pointer transition-colors no-underline">
+<span class="material-symbols-outlined">chat</span>
+<span>Messages</span>
+</a>
+<a href="profile.html" class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-50 rounded-lg mx-2 cursor-pointer transition-colors no-underline">
+<span class="material-symbols-outlined">person</span>
+<span>Profil</span>
+</a>
+</nav>
+<!-- Contact Card for script.js -->
+<div id="chat-contact-card" class="mx-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant"></div>
+<div class="mt-auto p-4">
+<a href="inbox.html" class="w-full py-3 bg-yellow-400 text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-yellow-500 transition-colors no-underline">
+<span class="material-symbols-outlined">add</span>
+Nouveau message
+</a>
+</div>
+</aside>
 
-        <form id="message-form" class="message-form">
-          <label class="file-button">
-            <input id="message-image" type="file" accept="image/*" />
-            <span>Image</span>
-          </label>
-          <textarea
-            id="message-input"
-            rows="1"
-            placeholder="Ecrivez votre message..."
-            maxlength="2000"
-          ></textarea>
-          <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
-      </section>
-    </main>
+<!-- Main Content Container -->
+<main class="ml-0 md:ml-64 flex w-full h-full overflow-hidden">
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
-  </body>
+<!-- Conversations List (Hidden on mobile) -->
+<section class="hidden md:flex w-80 border-r border-zinc-100 flex-shrink-0 bg-white flex-col">
+<div class="p-4 border-b border-zinc-50 flex items-center justify-between">
+<h3 class="font-headline-md text-on-surface">Boîte de réception</h3>
+<span id="global-unread-badge" class="conversation-badge"></span>
+</div>
+<div class="overflow-y-auto flex-grow p-2">
+<div id="conversation-list" class="space-y-1"></div>
+</div>
+<div class="p-4 border-t border-zinc-50">
+<div class="text-label-sm text-secondary uppercase tracking-wider mb-2">Nouvelle discussion</div>
+<form id="contact-search-form" class="flex gap-2 mb-3">
+<input type="text" id="contact-search-input" placeholder="ID (ex: ES123)" class="w-full text-sm border-zinc-200 bg-surface-container-low rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-primary-container" autocomplete="off"/>
+<button type="submit" class="bg-primary-container text-primary px-3 rounded-lg flex items-center justify-center hover:brightness-105 transition-all">
+<span class="material-symbols-outlined text-sm font-bold">search</span>
+</button>
+</form>
+<div id="contact-list" class="space-y-1"></div>
+</div>
+</section>
+
+<!-- Chat Area -->
+<section class="flex-grow flex flex-col bg-surface-bright h-full overflow-hidden">
+<!-- Chat Header -->
+<div class="h-16 border-b border-zinc-100 bg-white flex items-center justify-between px-4 md:px-6 flex-shrink-0">
+<div class="flex items-center gap-3">
+<a href="inbox.html" class="md:hidden p-2 text-zinc-500 hover:text-zinc-800">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<div id="chat-header-user" class="flex items-center gap-3"></div>
+</div>
+<div class="flex items-center gap-3">
+<div id="typing-indicator" class="text-sm text-green-600 font-medium min-w-[120px] text-right"></div>
+<a id="chat-profile-link" href="profile.html" class="p-2 text-secondary hover:text-on-surface rounded-full hover:bg-zinc-50 transition-colors" title="Voir le profil">
+<span class="material-symbols-outlined">info</span>
+</a>
+</div>
+</div>
+
+<!-- Messages Canvas -->
+<div id="message-list" class="flex-grow overflow-y-auto p-4 md:p-6 flex flex-col gap-4 bg-surface-bright">
+<!-- Messages injectés par script.js -->
+</div>
+
+<!-- Input Field -->
+<div class="p-3 md:p-6 bg-white border-t border-zinc-100 flex-shrink-0 relative">
+<div id="emoji-picker-container" class="hidden absolute bottom-full left-4 mb-2 z-50 rounded-xl overflow-hidden shadow-2xl border border-zinc-100">
+  <emoji-picker class="light"></emoji-picker>
+</div>
+<form id="message-form" class="flex items-end gap-2 md:gap-4 bg-surface-container-low rounded-2xl p-2 md:pr-4 border border-zinc-100 focus-within:border-yellow-400 focus-within:bg-white transition-all">
+<div class="flex items-center gap-1 mb-1">
+<label class="p-2 text-secondary hover:text-primary transition-colors cursor-pointer" title="Envoyer une photo ou une vidéo">
+<input id="message-media" type="file" accept="image/*,video/*" class="hidden"/>
+<span class="material-symbols-outlined">add_circle</span>
+</label>
+<button type="button" id="emoji-btn" class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mood</span>
+</button>
+</div>
+<textarea id="message-input" class="flex-grow bg-transparent border-none focus:ring-0 text-body-lg py-3 resize-none max-h-32 min-h-[44px] outline-none" placeholder="Écrivez votre message..." rows="1" maxlength="2000"></textarea>
+<button type="submit" class="mb-1 w-10 h-10 bg-yellow-400 text-black rounded-full flex items-center justify-center hover:bg-yellow-500 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</section>
+</main>
+</div>
+
+<script>
+function updateChatProfileLink() {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('user');
+    if (userId) {
+        const link = document.getElementById('chat-profile-link');
+        if (link) link.href = 'profile.html?user=' + userId;
+    }
+}
+updateChatProfileLink();
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
+

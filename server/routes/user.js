@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const { randomUUID } = require("crypto");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const authMiddleware = require("../middleware/auth");
@@ -20,8 +21,8 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename(req, file, cb) {
-    const sanitized = file.originalname.replace(/[^a-zA-Z0-9.-]/g, "_");
-    cb(null, `${Date.now()}-${sanitized}`);
+    const extension = path.extname(file.originalname || "").toLowerCase();
+    cb(null, `${Date.now()}-${randomUUID()}${extension}`);
   }
 });
 
@@ -81,18 +82,17 @@ router.post("/me/avatar", authMiddleware, upload.single("avatar"), async (req, r
 router.get("/contacts", authMiddleware, async (req, res) => {
   try {
     const search = (req.query.search || "").trim();
-    const query = {
-      _id: { $ne: req.user._id }
-    };
 
-    if (search) {
-      query.$or = [
-        { username: { $regex: search, $options: "i" } },
-        { email: { $regex: search, $options: "i" } }
-      ];
+    if (!search) {
+      return res.json({ users: [] });
     }
 
-    const users = await User.find(query).sort({ isOnline: -1, username: 1 });
+    const query = {
+      _id: { $ne: req.user._id },
+      studentId: { $regex: new RegExp("^" + search + "$", "i") }
+    };
+
+    const users = await User.find(query);
     return res.json({ users: users.map((user) => user.toSafeObject()) });
   } catch (error) {
     return res.status(500).json({ message: "Impossible de charger les contacts." });
@@ -154,10 +154,13 @@ router.get("/conversations", authMiddleware, async (req, res) => {
 
         return {
           user: user.toSafeObject(),
-          lastMessage: latestMessage.imageUrl
-            ? latestMessage.message || "Image envoyee"
-            : latestMessage.message,
+          lastMessage: latestMessage.videoUrl
+            ? latestMessage.message || "Video envoyee"
+            : latestMessage.imageUrl
+              ? latestMessage.message || "Photo envoyee"
+              : latestMessage.message,
           imageUrl: latestMessage.imageUrl,
+          videoUrl: latestMessage.videoUrl,
           lastMessageAt: latestMessage.createdAt,
           direction: String(latestMessage.senderId) === String(currentUserId) ? "out" : "in",
           unreadCount: conversation.unreadCount

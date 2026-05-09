@@ -1,72 +1,237 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ESTIM Chat | Inscription</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body data-page="register">
-    <main class="auth-shell">
-      <section class="brand-panel">
-        <div class="brand-badge">ESTIM Chat</div>
-        <h1>Creez votre compte en quelques secondes.</h1>
-        <p>
-          Rejoignez vos contacts, retrouvez vos conversations et profitez d'un chat temps reel.
-        </p>
-      </section>
-
-      <section class="auth-card">
-        <div class="auth-card__header">
-          <h2>Inscription</h2>
-          <p>Configurez votre compte de messagerie.</p>
-        </div>
-
-        <form id="register-form" class="auth-form">
-          <label>
-            <span>Nom utilisateur</span>
-            <input type="text" name="username" placeholder="Votre nom" required />
-          </label>
-
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="vous@estimchat.com" required />
-          </label>
-
-          <label>
-            <span>Mot de passe</span>
-            <input type="password" name="password" placeholder="Minimum 6 caracteres" required />
-          </label>
-
-          <label>
-            <span>Confirmation</span>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirmez votre mot de passe"
-              required
-            />
-          </label>
-
-          <button type="submit" class="btn btn-primary">Creer mon compte</button>
-        </form>
-
-        <div class="separator"><span>ou s'inscrire avec</span></div>
-
-        <div class="oauth-grid">
-          <a class="btn btn-secondary" href="/api/auth/google">Google</a>
-          <a class="btn btn-secondary" href="/api/auth/apple">Apple</a>
-        </div>
-
-        <p class="switch-link">
-          Vous avez deja un compte ? <a href="login.html">Se connecter</a>
-        </p>
-
-        <p id="auth-message" class="message-box" aria-live="polite"></p>
-      </section>
-    </main>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
-  </body>
+<html class="light" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESTIM - Inscription</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#705d00",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#e9c400",
+                        "surface-container-low": "#f3f3f8",
+                        "surface-container": "#ededf2",
+                        "surface-bright": "#f9f9fe",
+                        "on-secondary-container": "#646464",
+                        "primary-fixed-dim": "#e9c400",
+                        "on-primary-fixed-variant": "#544600",
+                        "error": "#ba1a1a",
+                        "outline": "#7e775f",
+                        "surface-dim": "#d9dade",
+                        "surface-variant": "#e2e2e7",
+                        "tertiary-fixed-dim": "#00dbe8",
+                        "secondary-container": "#e2e2e2",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "background": "#f9f9fe",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8ed",
+                        "secondary": "#5e5e5e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#705e00",
+                        "on-surface": "#1a1c1f",
+                        "primary-container": "#ffd700",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#221b00",
+                        "inverse-surface": "#2e3034",
+                        "on-surface-variant": "#4d4732",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "inverse-on-surface": "#f0f0f5",
+                        "primary-fixed": "#ffe16d",
+                        "tertiary-container": "#00f1ff",
+                        "tertiary": "#00696f",
+                        "outline-variant": "#d0c6ab",
+                        "surface-tint": "#705d00",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "on-background": "#1a1c1f",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface-container-highest": "#e2e2e7",
+                        "tertiary-fixed": "#79f5ff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f9f9fe",
+                        "on-tertiary-container": "#006a70",
+                        "on-tertiary-fixed": "#002022",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin-page": "20px",
+                        "gutter-list": "1px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["15px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "label-bold": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "headline-md": ["17px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-scale-98:active { transform: scale(0.98); }
+        .message-box {
+            min-height: 24px;
+            color: var(--muted, #5e5e5e);
+            text-align: center;
+            font-size: 14px;
+        }
+        .message-box.is-error {
+            color: #ba1a1a;
+        }
+        .message-box.is-success {
+            color: #00696f;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-lg text-on-surface antialiased" data-page="register">
+<!-- Auth Layout Wrapper -->
+<main class="min-h-screen flex flex-col md:flex-row">
+<!-- Left Column: Branding & Experience (Hidden on small screens) -->
+<section class="hidden lg:flex lg:w-7/12 xl:w-2/3 relative overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" alt="Modern bright university campus interior with students collaborating in a minimalist open space with warm natural lighting" src="Ressource/background_register_login.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-20 flex flex-col justify-between w-full h-full">
+<div>
+<h1 class="text-black font-display text-display tracking-tighter mb-4">ESTIM</h1>
+<p class="text-on-primary-container font-headline-md text-headline-md max-w-md">
+                        Façonnez votre avenir académique avec une plateforme conçue pour l'excellence et la collaboration.
+                    </p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-lg rounded-xl border border-white/20 max-w-sm">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+<img src="Ressource/Logo.jpeg" alt="Logo ESTIM" class="w-full h-full object-cover">
+</div>
+<div>
+<p class="text-black font-label-bold text-label-bold">Hub Étudiant</p>
+<p class="text-black/70 font-label-sm text-label-sm">Année Académique 2024</p>
+</div>
+</div>
+<p class="text-black font-body-sm text-body-sm italic">
+                        "La gestion de mes cours et de ma communication n'a jamais été aussi fluide."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Right Column: Signup Form -->
+<section class="flex-1 flex flex-col justify-center px-margin-page py-xl bg-surface">
+<div class="max-w-md w-full mx-auto space-y-xl">
+<!-- Brand Header for Mobile/Web Consistency -->
+<div class="lg:hidden flex items-center justify-between mb-xl">
+<span class="text-black font-display text-display tracking-tighter">ESTIM</span>
+</div>
+<div class="space-y-base">
+<h2 class="text-on-surface font-headline-lg text-headline-lg">Créer un compte</h2>
+<p class="text-secondary font-body-lg text-body-lg">Rejoignez la communauté ESTIM aujourd'hui.</p>
+</div>
+<form id="register-form" class="space-y-lg" novalidate>
+<!-- Full Name -->
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface-variant px-xs" for="name">Nom Complet</label>
+<div class="relative">
+<input class="w-full h-12 px-lg rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container font-body-lg text-body-lg placeholder:text-secondary/50 transition-all" id="name" name="username" placeholder="Jean Dupont" type="text" autocomplete="name" required/>
+</div>
+</div>
+<!-- Student Email -->
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface-variant px-xs" for="email">Email Étudiant</label>
+<div class="relative">
+<input class="w-full h-12 px-lg rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container font-body-lg text-body-lg placeholder:text-secondary/50 transition-all" id="email" name="email" placeholder="nom.prenom@estim.edu" type="email" autocomplete="email" required/>
+</div>
+</div>
+<!-- Password Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface-variant px-xs" for="password">Mot de passe</label>
+<input class="w-full h-12 px-lg rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container font-body-lg text-body-lg placeholder:text-secondary/50 transition-all" id="password" name="password" placeholder="••••••••" type="password" autocomplete="new-password" required/>
+</div>
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface-variant px-xs" for="confirm">Confirmation</label>
+<input class="w-full h-12 px-lg rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container font-body-lg text-body-lg placeholder:text-secondary/50 transition-all" id="confirm" name="confirmPassword" placeholder="••••••••" type="password" autocomplete="new-password" required/>
+</div>
+</div>
+<!-- Terms & Conditions -->
+<div class="flex items-center gap-sm px-xs pt-base">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="terms" name="terms" type="checkbox" required/>
+<label class="font-body-sm text-body-sm text-secondary" for="terms">
+                            J'accepte les <a class="text-primary font-label-bold underline" href="#">Conditions d'Utilisation</a> et la <a class="text-primary font-label-bold underline" href="#">Politique de Confidentialité</a>.
+                        </label>
+</div>
+<!-- CTA Button -->
+<button class="w-full h-14 bg-primary-container text-black font-headline-md text-headline-md rounded-full shadow-sm hover:opacity-90 active-scale-98 transition-all flex items-center justify-center gap-xs" type="submit">
+                        S'inscrire
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Message Box -->
+<p id="auth-message" class="message-box" aria-live="polite"></p>
+<!-- Social Divider -->
+<div class="relative py-lg">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-surface-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm uppercase tracking-widest text-secondary bg-surface px-md">
+                        Ou s'inscrire avec
+                    </div>
+</div>
+<!-- Social Actions -->
+<div class="flex justify-center">
+<a href="/api/auth/google" id="google-oauth-btn" class="flex items-center justify-center gap-xs h-12 rounded-full border border-outline-variant hover:bg-surface-container transition-colors no-underline text-inherit px-6">
+<img alt="Google" class="w-5 h-5" src="https://www.svgrepo.com/show/475656/google-color.svg"/>
+<span class="font-label-bold text-label-bold">Google</span>
+</a>
+</div>
+<!-- Footer Link -->
+<div class="text-center pt-xl">
+<p class="font-body-lg text-body-lg text-secondary">
+                        Vous avez déjà un compte ? 
+                        <a class="text-primary font-headline-md text-headline-md hover:underline ml-xs" href="login.html">Se connecter</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual Elements Suppression: BottomNavBar and FAB are hidden for Signup -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
+

@@ -205,6 +205,10 @@ router.post("/register", async (req, res) => {
     const token = buildToken(user);
     return res.status(201).json({ token, user: user.toSafeObject() });
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(409).json({ message: "Cet email ou identifiant est deja utilise." });
+    }
+
     return res.status(500).json({ message: "Erreur serveur pendant l'inscription." });
   }
 });

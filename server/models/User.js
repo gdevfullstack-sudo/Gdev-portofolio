@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const { randomInt } = require("crypto");
+
+function generateStudentId() {
+  return `ES${randomInt(100000, 1000000)}`;
+}
 
 const userSchema = new mongoose.Schema(
   {
@@ -32,12 +37,34 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["local", "google", "apple"],
       default: "local"
+    },
+    studentId: {
+      type: String,
+      unique: true,
+      sparse: true
     }
   },
   {
     timestamps: { createdAt: true, updatedAt: true }
   }
 );
+
+userSchema.pre("save", async function(next) {
+  if (!this.studentId) {
+    for (let attempt = 0; attempt < 10; attempt += 1) {
+      const candidate = generateStudentId();
+      const existing = await mongoose.model("User").findOne({ studentId: candidate });
+      if (!existing) {
+        this.studentId = candidate;
+        return next();
+      }
+    }
+
+    return next(new Error("Unable to generate a unique student ID."));
+  }
+
+  next();
+});
 
 userSchema.methods.toSafeObject = function toSafeObject() {
   return {
@@ -47,7 +74,8 @@ userSchema.methods.toSafeObject = function toSafeObject() {
     avatar: this.avatar,
     isOnline: this.isOnline,
     createdAt: this.createdAt,
-    provider: this.provider
+    provider: this.provider,
+    studentId: this.studentId
   };
 };
 

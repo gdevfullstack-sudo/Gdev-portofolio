@@ -1,21 +1,12 @@
-# TODO.md - Fix Bug Responsivité Mobile (Navbar Overflow)
+# TODO - Réparation page profil
 
-## Plan Approuvé ✅ - Fix Navbar Mobile
-**Statut**: 🚀 En cours
-
-### Étape 1: [✅] Corriger Navbar Width/Padding (index.html)
-- Width: `w-full max-w-[95vw] sm:w-[90%] sm:max-w-4xl`
-- Padding: `px-2 sm:px-4` + `overflow-hidden`
-
-### Étape 2: [✅] Media Query CSS (style.css)
-- `@media (max-width: 360px)`: Safe-area + padding 0.5rem
-
-### Étape 3: [✅] Test & Validation
-- ✅ Local: `start index.html`
-- DevTools: 320px/360px OK
-- Phone test: Résolu via `left-0 right-0 mx-auto` et `overflow-x-hidden` sur html.
-
-**Objectif**: Éliminer scroll horizontal navbar <360px.
-
-*Progress sera updaté après chaque étape.*
+- [x] Créer TODO.md (cette tâche)
+- [x] Modifier `public/script.js` :
+  - [x] Corriger pastille statut (conserver `.status-dot` + `.online`)
+  - [x] Corriger avatar top-barre (toujours refléter l'utilisateur connecté)
+  - [x] Masquer bouton "Partager" sur son propre profil
+- [x] Modifier `public/profile.html` :
+  - [x] Ajouter carte "ID Étudiant" dans section lecture seule
+  - [x] Déplacer `#profile-message` hors de la section éditable pour qu'il soit visible en mode lecture seule
+- [x] Vérifier que rien n'est cassé après modifications
 
