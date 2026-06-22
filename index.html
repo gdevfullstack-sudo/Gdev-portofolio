@@ -41,6 +41,23 @@
             },
         }
     </script>
+    <style>
+        /* Sécurité pour éviter le clignotement de texte des icônes */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
     <link rel="preload" href="Ressource/Logo.webp" as="image" type="image/webp" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
     <script type="application/ld+json">
@@ -84,11 +101,11 @@
                     <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
                     <button id="dark-toggle" class="ml-2 p-2 rounded-xl hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 ring-primary" aria-label="Toggle thème sombre/clair">
-                        <span class="material-symbols-outlined text-lg">light_mode</span>
+                        <span class="material-symbols-outlined text-lg">&#xe518;</span>
                     </button>
                 </div>
                 <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-button md:hidden inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-200/50 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition-colors hover:border-primary/50 hover:text-primary" type="button">
-                    <span class="material-symbols-outlined text-[22px]">menu</span>
+                    <span class="material-symbols-outlined text-[22px]">&#xe5d2;</span>
                 </button>
             </div>
         </div>
@@ -101,7 +118,7 @@
                 <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
                 <button id="mobile-dark-toggle" class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300 w-full text-left flex items-center justify-between text-slate-900 dark:text-slate-100">
                     <span>Thème clair</span>
-                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                    <span class="material-symbols-outlined text-lg">&#xe518;</span>
                 </button>
             </div>
         </div>
@@ -125,7 +142,7 @@
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a class="magnetic glow-hover glow-pulse flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-center font-bold text-white transition-all duration-300 sm:w-auto sm:min-w-[12rem]" href="#projects">
                     Voir résultats
-                    <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                    <span class="material-symbols-outlined text-sm">&#xe5db;</span>
                 </a>
                 <a class="magnetic glass glow-pulse flex w-full items-center justify-center rounded-xl px-8 py-4 text-center font-bold text-slate-900 transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-white/5 sm:w-auto sm:min-w-[12rem]" href="#contact">
                     Obtenir un devis
@@ -147,12 +164,12 @@
             </div>
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-slate-400">
                 <span class="inline-flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary text-base">verified</span>
+                    <span class="material-symbols-outlined text-primary text-base">&#xe8e8;</span>
                     Réponse sous 24h
                 </span>
                 <span class="hidden sm:inline">•</span>
                 <span class="inline-flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary text-base">schedule</span>
+                    <span class="material-symbols-outlined text-primary text-base">&#xe8b5;</span>
                     Audit rapide offert
                 </span>
             </div>
@@ -177,28 +194,28 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
                         <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                            <span class="material-symbols-outlined text-primary">psychology</span>
+                            <span class="material-symbols-outlined text-primary">&#xeaee;</span>
                         </div>
                         <h4 class="font-bold mb-2">Résolution de problèmes</h4>
                         <p class="text-xs text-slate-400">Analyse approfondie pour des solutions robustes et évolutives.</p>
                     </div>
                     <div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
                         <div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
-                            <span class="material-symbols-outlined text-accent-purple">terminal</span>
+                            <span class="material-symbols-outlined text-accent-purple">&#xe8ee;</span>
                         </div>
                         <h4 class="font-bold mb-2">Code propre</h4>
                         <p class="text-xs text-slate-400">Code maintenable, testé et respectant les meilleures pratiques.</p>
                     </div>
                     <div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
                         <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                            <span class="material-symbols-outlined text-primary">speed</span>
+                            <span class="material-symbols-outlined text-primary">&#xe9e4;</span>
                         </div>
                         <h4 class="font-bold mb-2">Performance</h4>
                         <p class="text-xs text-slate-400">Optimisation Core Web Vitals pour une fluidité maximale.</p>
                     </div>
                     <div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
                         <div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
-                            <span class="material-symbols-outlined text-accent-purple">palette</span>
+                            <span class="material-symbols-outlined text-accent-purple">&#xe40a;</span>
                         </div>
                         <h4 class="font-bold mb-2">Focus UX/UI</h4>
                         <p class="text-xs text-slate-400">Conception centrée sur l'utilisateur avec un souci du détail.</p>
@@ -230,7 +247,7 @@
                     <p class="text-slate-400 mb-3 max-w-lg">Une plateforme de publication/écoute/téléchargement de musiques avec pages artistes, morceaux récents et les plus téléchargés, plus lecteur audio intégré.</p>
                     <p class="text-xs text-slate-300 mb-6">Impact: +22% de rétention et +31% d’écoutes sur 30 jours.</p>
                     <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://www.zikzone.com/" target="_blank" rel="noopener noreferrer">
-                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        Voir le site <span class="material-symbols-outlined text-sm">&#xe5cc;</span>
                     </a>
                 </div>
             </div>
@@ -246,7 +263,7 @@
                     <p class="text-slate-400 text-sm mb-3">Suivi en temps réel des actifs sur plusieurs chaînes avec alertes de prix du gaz.</p>
                     <p class="text-xs text-slate-300 mb-6">Impact: 30% de temps de décision.</p>
                     <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://gdevfullstack-sudo.github.io/PortoAki/#accueil" target="_blank" rel="noopener noreferrer">
-                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        Voir le site <span class="material-symbols-outlined text-sm">&#xe5cc;</span>
                     </a>
                 </div>
             </div>
@@ -261,7 +278,7 @@
                     <h4 class="text-2xl font-bold mb-2">Site vitrine "BISO TECH"</h4>
                     <p class="text-slate-400 mb-6 max-w-lg">Une plateforme de présentation de services d'une startup nommée "BISO TECH" .</p>
                     <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://bisotech.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        Voir le site <span class="material-symbols-outlined text-sm">&#xe5cc;</span>
                     </a>
                 </div>
             </div>
@@ -277,61 +294,61 @@
             <div class="grid grid-cols-2 gap-4 min-[480px]:grid-cols-3 sm:gap-6 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">javascript</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe51c;</span>
                     </div>
                     <span class="font-semibold text-sm">Vanilla JS</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">dns</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe52d;</span>
                     </div>
                     <span class="font-semibold text-sm">Node.js</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">view_quilt</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe41d;</span>
                     </div>
                     <span class="font-semibold text-sm">Tailwind CSS</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe8ee;</span>
                     </div>
                     <span class="font-semibold text-sm">TypeJS</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">storage</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe1db;</span>
                     </div>
                     <span class="font-semibold text-sm">MySQL</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">database</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xf042;</span>
                     </div>
                     <span class="font-semibold text-sm">MongoDB</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">deployed_code</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe9f5;</span>
                     </div>
                     <span class="font-semibold text-sm">React</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xf067;</span>
                     </div>
                     <span class="font-semibold text-sm">AI</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">palette</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe40a;</span>
                     </div>
                     <span class="font-semibold text-sm">UI/UX</span>
                 </div>
                 <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
                     <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-primary text-3xl">settings_applications</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">&#xe8b8;</span>
                     </div>
                     <span class="font-semibold text-sm">Django / Flask</span>
                 </div>
@@ -350,11 +367,11 @@
                         </p>
                         <div class="flex flex-col gap-4">
                             <div class="flex items-center gap-4 text-slate-300">
-                                <span class="material-symbols-outlined text-primary">mail</span>
+                                <span class="material-symbols-outlined text-primary">&#xe151;</span>
                                 <span class="break-all">gdevfullstack@gmail.com</span>
                             </div>
                             <div class="flex items-center gap-4 text-slate-300">
-                                <span class="material-symbols-outlined text-primary">location_on</span>
+                                <span class="material-symbols-outlined text-primary">&#xe0c8;</span>
                                 <span data-location="Brazzaville">Brazzaville, Rep. du Congo</span>
                             </div>
                         </div>
