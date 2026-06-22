@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-
-<html class="dark overflow-x-hidden" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ressource/Logo.webp" property="og:image"/>
-<meta content="Ressource/Logo.webp" name="twitter:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="Ressource/Logo.webp" rel="icon" type="image/webp"/>
-<link rel="manifest" href="/manifest.json" />
-<title>Gdev | Expériences Numériques</title>
-<meta name="description" content="Gdev - Développeur fullstack | Création d'expériences numériques rapides et performantes. Next.js, React, Node.js, Tailwind. Portfolio et services." />
-<meta name="keywords" content="développeur web, fullstack, React, Next.js, Node.js, Tailwind, portfolio Gdev" />
-<meta name="author" content="Gdev" />
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-<script id="tailwind-config">
+<html class="dark overflow-x-hidden" lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Ressource/Logo.webp" property="og:image"/>
+    <meta content="Ressource/Logo.webp" name="twitter:image"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <link href="Ressource/Logo.webp" rel="icon" type="image/webp"/>
+    <link rel="manifest" href="/manifest.json" />
+    <title>Gdev | Expériences Numériques</title>
+    <meta name="description" content="Gdev - Développeur fullstack | Création d'expériences numériques rapides et performantes. Next.js, React, Node.js, Tailwind. Portfolio et services." />
+    <meta name="keywords" content="développeur web, fullstack, React, Next.js, Node.js, Tailwind, portfolio Gdev" />
+    <meta name="author" content="Gdev" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -42,75 +41,74 @@
             },
         }
     </script>
-<link rel="preload" href="Ressource/Logo.webp" as="image" type="image/webp" />
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Gdev",
-  "jobTitle": "Développeur Fullstack",
-  "url": "https://gdev-portfolio.netlify.app",
-  "email": "gdevfullstack@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Brazzaville",
-    "addressCountry": "Rep. du Congo"
-  },
-  "knowsAbout": ["Next.js", "React", "Node.js", "Tailwind CSS"]
-}
-</script>
+    <link rel="preload" href="Ressource/Logo.webp" as="image" type="image/webp" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gdev",
+      "jobTitle": "Développeur Fullstack",
+      "url": "https://gdev-portfolio.netlify.app",
+      "email": "gdevfullstack@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brazzaville",
+        "addressCountry": "Rep. du Congo"
+      },
+      "knowsAbout": ["Next.js", "React", "Node.js", "Tailwind CSS"]
+    }
+    </script>
 </head>
 <body class="relative overflow-x-hidden bg-background-light font-display text-slate-900 antialiased selection:bg-primary/30 dark:bg-background-dark dark:text-slate-100">
-<!-- Particles Canvas -->
-<canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-[-2] w-full h-full hidden md:block"></canvas>
-<!-- Decorative Blobs -->
-<div class="blob top-[-10%] left-[-10%]"></div>
-<div class="blob bottom-[10%] right-[-5%]"></div>
-<!-- Floating Navbar -->
-<nav class="fixed top-4 sm:top-6 left-0 right-0 mx-auto z-50 w-[92%] sm:w-[90%] max-w-4xl">
-<div class="glass rounded-[1.75rem] px-3 sm:px-4 py-3 shadow-2xl overflow-hidden">
-<div class="flex items-center justify-between gap-4">
-<div class="flex min-w-0 items-center gap-2">
-<img alt="Logo Gdev - Développeur fullstack" class="size-8 rounded-lg object-cover" loading="lazy" src="Ressource/Logo.webp"/>
-<div class="flex min-w-0 flex-col leading-tight">
-<span class="font-bold tracking-tight text-sm sm:text-lg">Gdev</span>
-<span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
-</div>
-</div>
-<div class="hidden md:flex items-center gap-6">
-<a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
-<a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#about">À propos</a>
-<a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
-<a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
- <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
-<button id="dark-toggle" class="ml-2 p-2 rounded-xl hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 ring-primary" aria-label="Toggle thème sombre/clair">
-<span class="material-symbols-outlined text-lg">light_mode</span>
-</button>
-</div>
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-button md:hidden inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-200/50 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition-colors hover:border-primary/50 hover:text-primary" type="button">
-<span class="material-symbols-outlined text-[22px]">menu</span>
-</button>
-</div>
-</div>
-<div class="mobile-menu hidden w-full md:hidden pt-3" id="mobile-menu">
-<div class="glass-strong flex flex-col gap-1 rounded-3xl p-3">
-<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
-<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#about">À propos</a>
-<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
-<a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
- <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
-<button id="mobile-dark-toggle" class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300 w-full text-left flex items-center justify-between text-slate-900 dark:text-slate-100">
-<span>Thème clair</span>
-<span class="material-symbols-outlined text-lg">light_mode</span>
-</button>
-</div>
-</div>
-</nav>
-<!-- Hero Section -->
-<section class="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pt-28 pb-12 sm:px-6 sm:pt-24 sm:pb-16 lg:pb-20" id="home">
-<div class="max-w-4xl w-full text-center">
 
+    <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-[-2] w-full h-full hidden md:block"></canvas>
+    
+    <div class="blob top-[-10%] left-[-10%]"></div>
+    <div class="blob bottom-[10%] right-[-5%]"></div>
+
+    <nav class="fixed top-4 sm:top-6 left-0 right-0 mx-auto z-50 w-[92%] sm:w-[90%] max-w-4xl">
+        <div class="glass rounded-[1.75rem] px-3 sm:px-4 py-3 shadow-2xl overflow-hidden">
+            <div class="flex items-center justify-between gap-4">
+                <div class="flex min-w-0 items-center gap-2">
+                    <img alt="Logo Gdev - Développeur fullstack" class="size-8 rounded-lg object-cover" loading="lazy" src="Ressource/Logo.webp"/>
+                    <div class="flex min-w-0 flex-col leading-tight">
+                        <span class="font-bold tracking-tight text-sm sm:text-lg">Gdev</span>
+                        <span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#about">À propos</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+                    <button id="dark-toggle" class="ml-2 p-2 rounded-xl hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 ring-primary" aria-label="Toggle thème sombre/clair">
+                        <span class="material-symbols-outlined text-lg">light_mode</span>
+                    </button>
+                </div>
+                <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-button md:hidden inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-200/50 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition-colors hover:border-primary/50 hover:text-primary" type="button">
+                    <span class="material-symbols-outlined text-[22px]">menu</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu hidden w-full md:hidden pt-3" id="mobile-menu">
+            <div class="glass-strong flex flex-col gap-1 rounded-3xl p-3">
+                <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#home">Accueil</a>
+                <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#about">À propos</a>
+                <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#projects">Projets</a>
+                <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#skills">Compétences</a>
+                <a class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+                <button id="mobile-dark-toggle" class="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors duration-300 w-full text-left flex items-center justify-between text-slate-900 dark:text-slate-100">
+                    <span>Thème clair</span>
+                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pt-28 pb-12 sm:px-6 sm:pt-24 sm:pb-16 lg:pb-20" id="home">
+        <div class="max-w-4xl w-full text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
                 <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -125,15 +123,13 @@
                 J'aide les entreprises à lancer des sites et applications rapides, clairs et rentables. Développement fullstack moderne, design centré utilisateur.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-<a class="magnetic glow-hover glow-pulse flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-center font-bold text-white transition-all duration-300 sm:w-auto sm:min-w-[12rem]" href="#projects">
+                <a class="magnetic glow-hover glow-pulse flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-center font-bold text-white transition-all duration-300 sm:w-auto sm:min-w-[12rem]" href="#projects">
                     Voir résultats
                     <span class="material-symbols-outlined text-sm">arrow_downward</span>
                 </a>
                 <a class="magnetic glass glow-pulse flex w-full items-center justify-center rounded-xl px-8 py-4 text-center font-bold text-slate-900 transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-white/5 sm:w-auto sm:min-w-[12rem]" href="#contact">
                     Obtenir un devis
                 </a>
-
             </div>
             <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left max-w-3xl mx-auto p-2 sm:p-4">
                 <div class="glass-strong p-4 rounded-2xl">
@@ -149,8 +145,6 @@
                     <div class="text-xs text-slate-600 dark:text-slate-400">Projets livrés</div>
                 </div>
             </div>
-
-            </div>
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-slate-400">
                 <span class="inline-flex items-center gap-2">
                     <span class="material-symbols-outlined text-primary text-base">verified</span>
@@ -164,238 +158,252 @@
             </div>
         </div>
     </section>
-<section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="about">
-<div class="glass p-8 md:p-12 rounded-3xl border-white/5">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-<div>
-<h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">À propos</h2>
-<h3 class="mb-6 text-3xl font-bold text-gradient dark:text-white sm:text-4xl">À propos de moi</h3>
-<div class="space-y-4 text-slate-400 leading-relaxed">
-<p>
-                        Passionné par le développement web depuis plus de 2 ans, je me spécialise dans la création d'interfaces intuitives et performantes. Mon approche combine rigueur technique et sensibilité design pour offrir des expériences numériques mémorables.
-                    </p>
-<p>
-                        Je transforme des concepts complexes en solutions simples et élégantes, en utilisant les technologies les plus modernes de l'écosystème JavaScript/TypeScript.
-                    </p>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-<div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
-<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-primary">psychology</span>
-</div>
-<h4 class="font-bold mb-2">Résolution de problèmes</h4>
-<p class="text-xs text-slate-400">Analyse approfondie pour des solutions robustes et évolutives.</p>
-</div>
-<div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
-<div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
-<span class="material-symbols-outlined text-accent-purple">terminal</span>
-</div>
-<h4 class="font-bold mb-2">Code propre</h4>
-<p class="text-xs text-slate-400">Code maintenable, testé et respectant les meilleures pratiques.</p>
-</div>
-<div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
-<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-primary">speed</span>
-</div>
-<h4 class="font-bold mb-2">Performance</h4>
-<p class="text-xs text-slate-400">Optimisation Core Web Vitals pour une fluidité maximale.</p>
-</div>
-<div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
-<div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
-<span class="material-symbols-outlined text-accent-purple">palette</span>
-</div>
-<h4 class="font-bold mb-2">Focus UX/UI</h4>
-<p class="text-xs text-slate-400">Conception centrée sur l'utilisateur avec un souci du détail.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section (Bento Grid) -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="projects">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-<div>
-<h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Portfolio</h2>
-<h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Projets sélectionnés</h3>
-</div>
-<p class="text-slate-400 max-w-md">Une collection de solutions techniques construites avec des technologies modernes et axées sur la performance.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- Project 1: Large -->
-        <div class="project-card md:col-span-8 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" style="background-image: url('Ressource/zikzone 2.webp');" alt="Capture d'écran Zikzone - plateforme streaming musicale" loading="lazy"></div>
-            <div class="relative z-10">
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">FRONTEND: NEXT.JS / TYPESCRIPT</span>
-<span class="px-3 py-1 bg-accent-purple/20 text-accent-purple rounded-full text-[10px] font-bold">BACKEND: NODE.JS / API REST</span>
-<span class="px-3 py-1 bg-white/10 text-white/60 rounded-full text-[10px] font-bold">DB: POSTGRESQL</span>
-</div>
-<h4 class="text-2xl font-bold mb-2">Site de streaming musicale</h4>
-                <p class="text-slate-400 mb-3 max-w-lg">Une plateforme de publication/écoute/téléchargement de musiques avec pages artistes, morceaux récents et les plus téléchargés, plus lecteur audio intégré.</p>
-                <p class="text-xs text-slate-300 mb-6">Impact: +22% de rétention et +31% d’écoutes sur 30 jours.</p>
-                <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://www.zikzone.com/" target="_blank" rel="noopener noreferrer">
-                            Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
-                </a>
+
+    <section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="about">
+        <div class="glass p-8 md:p-12 rounded-3xl border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">À propos</h2>
+                    <h3 class="mb-6 text-3xl font-bold text-gradient dark:text-white sm:text-4xl">À propos de moi</h3>
+                    <div class="space-y-4 text-slate-400 leading-relaxed">
+                        <p>
+                            Passionné par le développement web depuis plus de 2 ans, je me spécialise dans la création d'interfaces intuitives et performantes. Mon approche combine rigueur technique et sensibilité design pour offrir des expériences numériques mémorables.
+                        </p>
+                        <p>
+                            Je transforme des concepts complexes en solutions simples et élégantes, en utilisant les technologies les plus modernes de l'écosystème JavaScript/TypeScript.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
+                        <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <span class="material-symbols-outlined text-primary">psychology</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Résolution de problèmes</h4>
+                        <p class="text-xs text-slate-400">Analyse approfondie pour des solutions robustes et évolutives.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
+                        <div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
+                            <span class="material-symbols-outlined text-accent-purple">terminal</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Code propre</h4>
+                        <p class="text-xs text-slate-400">Code maintenable, testé et respectant les meilleures pratiques.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl hover:border-primary/30 transition-colors group">
+                        <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <span class="material-symbols-outlined text-primary">speed</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Performance</h4>
+                        <p class="text-xs text-slate-400">Optimisation Core Web Vitals pour une fluidité maximale.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl hover:border-accent-purple/30 transition-colors group">
+                        <div class="size-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-purple/20 transition-colors">
+                            <span class="material-symbols-outlined text-accent-purple">palette</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Focus UX/UI</h4>
+                        <p class="text-xs text-slate-400">Conception centrée sur l'utilisateur avec un souci du détail.</p>
+                    </div>
+                </div>
             </div>
-</div>
-<!-- Project 2: Small -->
-        <div class="project-card md:col-span-4 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-30" data-alt="Abstract code and data visualization" style="background-image: url('Ressource/WhatsApp\ Image\ 2026-03-08\ at\ 17.02.55.webp');"></div>
-            <div class="relative z-10">
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">HTML CSS</span>
-<span class="px-3 py-1 bg-white/10 text-white/60 rounded-full text-[10px] font-bold">JavaScript</span>
-</div>
-<h4 class="text-xl font-bold mb-2">Portfolio designer graphique</h4>
-                <p class="text-slate-400 text-sm mb-3">Suivi en temps réel des actifs sur plusieurs chaînes avec alertes de prix du gaz.</p>
-                <p class="text-xs text-slate-300 mb-6">Impact: 30% de temps de décision.</p>
-                <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://gdevfullstack-sudo.github.io/PortoAki/#accueil" target="_blank" rel="noopener noreferrer">
-                            Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
-                </a>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto" id="projects">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Portfolio</h2>
+                <h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Projets sélectionnés</h3>
             </div>
-</div>
-</div>
-</section>
-<!-- Skills Section -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-100/50 dark:bg-slate-900/10" id="skills">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Technique</h2>
-<h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Expertise &amp; Stack</h3>
-</div>
-<div class="grid grid-cols-2 gap-4 min-[480px]:grid-cols-3 sm:gap-6 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-<!-- Skill Card -->
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">javascript</span>
-</div>
-<span class="font-semibold text-sm">Vanilla JS</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">dns</span>
-</div>
-<span class="font-semibold text-sm">Node.js</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">view_quilt</span>
-</div>
-<span class="font-semibold text-sm">Tailwind CSS</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
-</div>
-<span class="font-semibold text-sm">TypeJS</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">storage</span>
-</div>
-<span class="font-semibold text-sm">MySQL</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">database</span>
-</div>
-<span class="font-semibold text-sm">MongoDB</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">deployed_code</span>
-</div>
-<span class="font-semibold text-sm">React</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
-</div>
-<span class="font-semibold text-sm">AI</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">palette</span>
-</div>
-<span class="font-semibold text-sm">UI/UX</span>
-</div>
-<div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
-<div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">settings_applications</span>
-</div>
-<span class="font-semibold text-sm">Django / Flask</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden" id="contact">
-    <div class="max-w-4xl mx-auto">
-        <div class="glass p-8 md:p-12 rounded-3xl relative z-10 border-white/5">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<div>
-<h2 class="mb-6 text-3xl font-bold sm:text-4xl lg:text-5xl">Créons <br/> quelque chose <span class="text-gradient">d'incroyable.</span></h2>
-<p class="text-slate-400 mb-8 leading-relaxed">
+            <p class="text-slate-400 max-w-md">Une collection de solutions techniques construites avec des technologies modernes et axées sur la performance.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="project-card md:col-span-8 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" style="background-image: url('Ressource/zikzone 2.webp');" alt="Capture d'écran Zikzone - plateforme streaming musicale" loading="lazy"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">FRONTEND: NEXT.JS / TYPESCRIPT</span>
+                        <span class="px-3 py-1 bg-accent-purple/20 text-accent-purple rounded-full text-[10px] font-bold">BACKEND: NODE.JS / API REST</span>
+                        <span class="px-3 py-1 bg-white/10 text-white/60 rounded-full text-[10px] font-bold">DB: POSTGRESQL</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2">Site de streaming musicale</h4>
+                    <p class="text-slate-400 mb-3 max-w-lg">Une plateforme de publication/écoute/téléchargement de musiques avec pages artistes, morceaux récents et les plus téléchargés, plus lecteur audio intégré.</p>
+                    <p class="text-xs text-slate-300 mb-6">Impact: +22% de rétention et +31% d’écoutes sur 30 jours.</p>
+                    <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://www.zikzone.com/" target="_blank" rel="noopener noreferrer">
+                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card md:col-span-4 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-30" data-alt="Abstract code and data visualization" style="background-image: url('Ressource/WhatsApp\ Image\ 2026-03-08\ at\ 17.02.55.webp');"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">HTML CSS</span>
+                        <span class="px-3 py-1 bg-white/10 text-white/60 rounded-full text-[10px] font-bold">JavaScript</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Portfolio designer graphique</h4>
+                    <p class="text-slate-400 text-sm mb-3">Suivi en temps réel des actifs sur plusieurs chaînes avec alertes de prix du gaz.</p>
+                    <p class="text-xs text-slate-300 mb-6">Impact: 30% de temps de décision.</p>
+                    <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://gdevfullstack-sudo.github.io/PortoAki/#accueil" target="_blank" rel="noopener noreferrer">
+                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card md:col-span-8 group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl glass p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-40" style="background-image: url('Ressource/Bisotech.png');" alt="Capture d'écran Biso Tech" loading="lazy"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold">FRONTEND: NEXT.JS </span>
+                        <span class="px-3 py-1 bg-accent-purple/20 text-accent-purple rounded-full text-[10px] font-bold">BACKEND: NODE.JS</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2">Site vitrine "BISO TECH"</h4>
+                    <p class="text-slate-400 mb-6 max-w-lg">Une plateforme de présentation de services d'une startup nommée "BISO TECH" .</p>
+                    <a class="text-white flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors" href="https://bisotech.netlify.app/" target="_blank" rel="noopener noreferrer">
+                        Voir le site <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-100/50 dark:bg-slate-900/10" id="skills">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Technique</h2>
+                <h3 class="text-3xl font-bold dark:text-white sm:text-4xl">Expertise &amp; Stack</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-4 min-[480px]:grid-cols-3 sm:gap-6 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">javascript</span>
+                    </div>
+                    <span class="font-semibold text-sm">Vanilla JS</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">dns</span>
+                    </div>
+                    <span class="font-semibold text-sm">Node.js</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">view_quilt</span>
+                    </div>
+                    <span class="font-semibold text-sm">Tailwind CSS</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+                    </div>
+                    <span class="font-semibold text-sm">TypeJS</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">storage</span>
+                    </div>
+                    <span class="font-semibold text-sm">MySQL</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">database</span>
+                    </div>
+                    <span class="font-semibold text-sm">MongoDB</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">deployed_code</span>
+                    </div>
+                    <span class="font-semibold text-sm">React</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+                    </div>
+                    <span class="font-semibold text-sm">AI</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">palette</span>
+                    </div>
+                    <span class="font-semibold text-sm">UI/UX</span>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="size-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">settings_applications</span>
+                    </div>
+                    <span class="font-semibold text-sm">Django / Flask</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden" id="contact">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-8 md:p-12 rounded-3xl relative z-10 border-white/5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="mb-6 text-3xl font-bold sm:text-4xl lg:text-5xl">Créons <br/> quelque chose <span class="text-gradient">d'incroyable.</span></h2>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
                             Je suis actuellement à la recherche de nouvelles opportunités. Que vous ayez une question ou simplement envie de dire bonjour, je ferai de mon mieux pour vous répondre !
                         </p>
-<div class="flex flex-col gap-4">
-<div class="flex items-center gap-4 text-slate-300">
-<span class="material-symbols-outlined text-primary">mail</span>
-<span class="break-all">gdevfullstack@gmail.com</span>
-</div>
-<div class="flex items-center gap-4 text-slate-300">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<span data-location="Brazzaville">Brazzaville, Rep. du Congo</span>
-</div>
-</div>
-</div>
-<form action="https://formspree.io/f/mojkvbra" class="flex flex-col gap-6" method="post">
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Nom complet</label>
-
-<input id="name" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all relative" name="name" placeholder="Jean Dupont" required type="text"/>
-
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Adresse email</label>
-<input id="email" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all" name="email" placeholder="jean@exemple.com" required type="email"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Message</label>
-<textarea id="message" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all resize-none h-32" name="message" placeholder="Parlez-moi de votre projet..." required rows="4"></textarea>
-</div>
-<button class="bg-gradient-main text-white font-bold py-4 rounded-xl glow-hover transition-all duration-300">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4 text-slate-300">
+                                <span class="material-symbols-outlined text-primary">mail</span>
+                                <span class="break-all">gdevfullstack@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-slate-300">
+                                <span class="material-symbols-outlined text-primary">location_on</span>
+                                <span data-location="Brazzaville">Brazzaville, Rep. du Congo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="https://formspree.io/f/mojkvbra" class="flex flex-col gap-6" method="post">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Nom complet</label>
+                            <input id="name" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all relative" name="name" placeholder="Jean Dupont" required type="text"/>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Adresse email</label>
+                            <input id="email" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all" name="email" placeholder="jean@exemple.com" required type="email"/>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Message</label>
+                            <textarea id="message" class="glass-strong rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-primary transition-all resize-none h-32" name="message" placeholder="Parlez-moi de votre projet..." required rows="4"></textarea>
+                        </div>
+                        <button class="bg-gradient-main text-white font-bold py-4 rounded-xl glow-hover transition-all duration-300">
                             Envoyer le message
                         </button>
-</form>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="py-12 px-4 sm:px-6 border-t border-white/5">
-<div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-<div class="flex items-center gap-2">
-<img alt="Logo Gdev - Développeur fullstack footer" class="size-6 rounded object-cover" loading="lazy" src="Ressource/Logo.webp"/>
-<div class="flex flex-col leading-tight">
-<span class="font-bold tracking-tight text-sm">Gdev</span>
-<span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
-</div>
-</div>
-<p class="text-slate-500 text-sm">© 2026 G Dev. Tous droits réservés.</p>
-<div class="flex flex-wrap items-center justify-center gap-6">
-<a aria-label="Facebook" class="text-slate-400 hover:text-primary transition-colors" href="https://www.facebook.com/gdevfront/" target="_blank" rel="noopener noreferrer">
-<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.53-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-</a>
-<a aria-label="GitHub" class="text-slate-400 hover:text-primary transition-colors" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
-</a>
-<a aria-label="WhatsApp" class="text-slate-400 hover:text-primary transition-colors" href="https://wa.me/+242053775397" target="_blank" rel="noopener noreferrer">
-<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zM16.54 12.871c.231.115.385.173.442.269.058.096.058.557-.154 1.154-.212.596-1.231 1.173-1.693 1.212-.462.039-.885.154-2.846-.615-1.962-.769-3.231-2.769-3.327-2.885-.096-.115-.712-.942-.712-1.788 0-.846.442-1.269.615-1.442.173-.173.385-.212.519-.212h.385c.115 0 .269.019.385.288.135.327.462 1.135.5 1.212.038.077.058.173.019.269-.038.096-.096.154-.192.269-.096.115-.192.231-.288.346-.115.115-.231.231-.096.462.135.231.596.981 1.288 1.596.885.788 1.635 1.038 1.865 1.154.231.115.365.096.5-.058.135-.154.577-.673.731-.904.154-.231.308-.192.519-.115z"></path></svg>
-</a></div>
-</div>
-</footer>
-<script src="script.js"></script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-4 sm:px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
+            <div class="flex items-center gap-2">
+                <img alt="Logo Gdev - Développeur fullstack footer" class="size-6 rounded object-cover" loading="lazy" src="Ressource/Logo.webp"/>
+                <div class="flex flex-col leading-tight">
+                    <span class="font-bold tracking-tight text-sm">Gdev</span>
+                    <span class="hidden text-[10px] text-slate-500 dark:text-slate-400 sm:block">J'ai l'idée, G le code</span>
+                </div>
+            </div>
+            <p class="text-slate-500 text-sm">© 2026 G Dev. Tous droits réservés.</p>
+            <div class="flex flex-wrap items-center justify-center gap-6">
+                <a aria-label="Facebook" class="text-slate-400 hover:text-primary transition-colors" href="https://www.facebook.com/gdevfront/" target="_blank" rel="noopener noreferrer">
+                    <svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.53-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                </a>
+                <a aria-label="GitHub" class="text-slate-400 hover:text-primary transition-colors" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+                </a>
+                <a aria-label="WhatsApp" class="text-slate-400 hover:text-primary transition-colors" href="https://wa.me/+242053775397" target="_blank" rel="noopener noreferrer">
+                    <svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zM16.54 12.871c.231.115.385.173.442.269.058.096.058.557-.154 1.154-.212.596-1.231 1.173-1.693 1.212-.462.039-.885.154-2.846-.615-1.962-.769-3.231-2.769-3.327-2.885-.096-.115-.712-.942-.712-1.788 0-.846.442-1.269.615-1.442.173-.173.385-.212.519-.212h.385c.115 0 .269.019.385.288.135.327.462 1.135.5 1.212.038.077.058.173.019.269-.038.096-.096.154-.192.269-.096.115-.192.231-.288.346-.115.115-.231.231-.096.462.135.231.596.981 1.288 1.596.885.788 1.635 1.038 1.865 1.154.231.115.365.096.5-.058.135-.154.577-.673.731-.904.154-.231.308-.192.519-.115z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
