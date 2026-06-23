@@ -1,12 +1,8 @@
-# TODO - Réparation page profil
+# TODO - Akira Portfolio
 
-- [x] Créer TODO.md (cette tâche)
-- [x] Modifier `public/script.js` :
-  - [x] Corriger pastille statut (conserver `.status-dot` + `.online`)
-  - [x] Corriger avatar top-barre (toujours refléter l'utilisateur connecté)
-  - [x] Masquer bouton "Partager" sur son propre profil
-- [x] Modifier `public/profile.html` :
-  - [x] Ajouter carte "ID Étudiant" dans section lecture seule
-  - [x] Déplacer `#profile-message` hors de la section éditable pour qu'il soit visible en mode lecture seule
-- [x] Vérifier que rien n'est cassé après modifications
+- [x] Analyser la structure du projet (Next.js + App Router, composants, styling Tailwind v4)
+- [x] Audit perf/SEO/accessibilité + revue qualité/bugs (debug via lint)
+- [x] Corriger les erreurs ESLint `react/no-unescaped-entities` dans `src/components/Footer.tsx`
+- [x] Ajouter une background image à la section Hero (`src/components/Hero.tsx`) 
+
 
